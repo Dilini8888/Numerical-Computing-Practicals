@@ -1,0 +1,23 @@
+function[root]=bisectionQ1(xl,xu,step,epes)
+n=1;
+er=1;
+xr=0;
+
+if fl(xl)*fl(xu)<0
+    while (n<=step && er>epes)
+        xr_old=xr;
+        xr=(xl+xu)/2;
+
+        if fl(xl)*fl(xr)<0
+            xu=xr;
+        else
+            xl=xr;
+        end
+        er=abs((xr-xr_old)/xr);
+        n=n+1;
+    end
+    root=xr;
+else
+    disp('there is no root.');
+end
+end
